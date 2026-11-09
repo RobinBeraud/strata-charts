@@ -185,7 +185,7 @@ export function buildModel(o: ChartOptions, registry: Registry, vis: Visibility)
   const series: NSeries[] = entries.map(({ s, i, type, rawType, def, raws }) => {
     const id = s.id ?? `s${i}`;
     const polar = def.kind === 'standalone';
-    const color = s.color ?? (polar ? palette[0] : palette[colorIndex++ % palette.length]);
+    const color = (typeof s.color === 'string' ? s.color : undefined) ?? (polar ? palette[0] : palette[colorIndex++ % palette.length]);
     const ns: NSeries = {
       id,
       index: i,
@@ -226,7 +226,7 @@ export function buildModel(o: ChartOptions, registry: Registry, vis: Visibility)
         z: num(r.z) ?? undefined,
         ohlc: r.ohlc,
         name: r.name,
-        color: r.color ?? (polar ? palette[pi % palette.length] : color),
+        color: (typeof r.color === 'string' ? r.color : undefined) ?? (polar || s.colorByPoint ? palette[pi % palette.length] : color),
         visible: vis.points.get(`${id}:${pi}`) ?? true,
         drilldown: r.drilldown,
         isSum: r.isSum,
@@ -301,7 +301,8 @@ export function applyStacking(
     }
     const pos = new Map<number, number>();
     const neg = new Map<number, number>();
-    for (const s of group) {
+    // Like Highcharts (reversedStacks): the first series sits on top, the last one on the baseline.
+    for (const s of [...group].reverse()) {
       for (const p of s.points) {
         const total = totals.get(p.x) ?? 0;
         p.total = total;

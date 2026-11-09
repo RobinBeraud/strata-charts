@@ -253,6 +253,7 @@ export function renderCartesian(env: Env): CartesianFrame {
     const probe = makeY(i, [0, 1]);
     const f = fmtY(probe, i);
     const w = Math.max(0, ...valueTicks(probe, i).map(v => measure(f(v))));
+    if (ao.visible === false) return 0;
     return inverted ? 22 + (ao.title ? 18 : 0) : Math.ceil(w) + 10 + (ao.title ? 20 : 0);
   });
   let leftUsed = 0;
@@ -277,11 +278,12 @@ export function renderCartesian(env: Env): CartesianFrame {
   }
 
   let plot: Rect;
-  const xTitle = xOpt.title ? 20 : 0;
+  const xHidden = xOpt.visible === false;
+  const xTitle = xOpt.title && !xHidden ? 20 : 0;
   if (!inverted) {
     const left = Math.max(leftUsed, 24);
     const right = Math.max(rightUsed, 16);
-    const bottom = 24 + xTitle + (navOn ? navH + 10 : 0);
+    const bottom = (xHidden ? 8 : 24) + xTitle + (navOn ? navH + 10 : 0);
     plot = { left, top, width: Math.max(20, width - left - right), height: Math.max(20, height - top - bottom) };
   } else {
     const left = Math.ceil(isBand ? catLabelW : 40) + 12 + xTitle;
@@ -415,6 +417,7 @@ function renderValueAxis(env: Env, a: ValueAxisArgs): void {
   const k = `y${place.index}-`;
   const hasNeg = Math.min(...scale.domain) < 0;
   const labelFill = a.color ?? null;
+  const hidden = axis.visible === false;
 
   for (const v of a.ticks) {
     const p = scale.map(v);
@@ -425,6 +428,7 @@ function renderValueAxis(env: Env, a: ValueAxisArgs): void {
         ? { x1: plot.left, x2: right, y1: p, y2: p, opacity: 1, class: cls }
         : { x1: p, x2: p, y1: plot.top, y2: bottom, opacity: 1, class: cls }, fade);
     }
+    if (hidden) continue;
     let attrs;
     switch (place.side) {
       case 'left': attrs = { x: plot.left - place.offset - 8, y: p, dy: '0.32em', 'text-anchor': 'end' }; break;
@@ -435,7 +439,7 @@ function renderValueAxis(env: Env, a: ValueAxisArgs): void {
     scene.el(layers.axes, k + 'l' + key, 'text', { ...attrs, class: 'strata-tick-label', opacity: 1, fill: labelFill }, { ...fade, text: a.fmt(v) });
   }
 
-  if (axis.title) {
+  if (axis.title && !hidden) {
     const mid = plot.top + plot.height / 2;
     let attrs;
     switch (place.side) {
@@ -447,13 +451,38 @@ function renderValueAxis(env: Env, a: ValueAxisArgs): void {
     scene.el(layers.axes, k + 'title', 'text', { ...attrs, 'text-anchor': 'middle', class: 'strata-axis-title', fill: labelFill }, { text: axis.title });
   }
 
+  renderReferences(env, k, scale, axis, plot, place.side === 'bottom' || place.side === 'top');
+}
+
+/** Plot lines and plot bands of one axis. `vertical`: the axis runs horizontally, so marks are vertical. */
+function renderReferences(env: Env, k: string, scale: Scale, axis: AxisOptions, plot: Rect, vertical: boolean): void {
+  const { scene, layers } = env;
+  const right = plot.left + plot.width;
+  const bottom = plot.top + plot.height;
   const [dLo, dHi] = [Math.min(...scale.domain), Math.max(...scale.domain)];
+  (axis.plotBands ?? []).forEach((b, i) => {
+    const lo = Math.max(dLo, Math.min(b.from, b.to));
+    const hi = Math.min(dHi, Math.max(b.from, b.to));
+    if (hi <= lo) return;
+    const p0 = scale.map(lo);
+    const p1 = scale.map(hi);
+    const a = Math.min(p0, p1);
+    const len = Math.abs(p1 - p0);
+    scene.el(layers.grid, k + 'pb' + i, 'rect', vertical
+      ? { x: a, y: plot.top, width: len, height: plot.height, fill: b.color ?? null, class: 'strata-plotband' }
+      : { x: plot.left, y: a, width: plot.width, height: len, fill: b.color ?? null, class: 'strata-plotband' });
+    if (b.label) {
+      scene.el(layers.axes, k + 'pbl' + i, 'text', vertical
+        ? { x: a + len / 2, y: plot.top + 12, 'text-anchor': 'middle', class: 'strata-plotband-label' }
+        : { x: plot.left + 6, y: a + 12, class: 'strata-plotband-label' },
+      { text: b.label });
+    }
+  });
   (axis.plotLines ?? []).forEach((pl, i) => {
     // Lines outside the visible range are not drawn (they would float over the title).
     if (pl.value < dLo || pl.value > dHi) return;
     const p = scale.map(pl.value);
     const color = pl.color ?? '#ef4444';
-    const vertical = place.side === 'bottom' || place.side === 'top';
     scene.el(layers.axes, k + 'pl' + i, 'line', vertical
       ? { x1: p, x2: p, y1: plot.top, y2: bottom, stroke: color, class: 'strata-plotline' }
       : { x1: plot.left, x2: right, y1: p, y2: p, stroke: color, class: 'strata-plotline' });
@@ -473,6 +502,8 @@ function renderXAxis(env: Env, a: { plot: Rect; x: Scale; inverted: boolean; isB
   const right = plot.left + plot.width;
   const bottom = plot.top + plot.height;
   const fade = { enter: { opacity: 0 } };
+  renderReferences(env, 'x-', x, xOpt, plot, !inverted);
+  if (xOpt.visible === false) return;
 
   scene.el(layers.axes, 'x-line', 'line', inverted
     ? { x1: plot.left, x2: plot.left, y1: plot.top, y2: bottom, class: 'strata-axis-line' }

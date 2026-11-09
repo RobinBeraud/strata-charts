@@ -30,9 +30,9 @@ export class LinearScale implements Scale {
   }
 
   tickFormat(locale: string | undefined): (v: number) => string {
-    const step = niceStep(this.domain[1] - this.domain[0], this.lastCount);
     const maxAbs = Math.max(Math.abs(this.domain[0]), Math.abs(this.domain[1]));
-    return tickNumberFormatter(locale, step, maxAbs, this.numberFormat);
+    // The step depends on the tick count, known only once ticks() ran: resolve it lazily.
+    return v => tickNumberFormatter(locale, niceStep(this.domain[1] - this.domain[0], this.lastCount), maxAbs, this.numberFormat)(v);
   }
 }
 

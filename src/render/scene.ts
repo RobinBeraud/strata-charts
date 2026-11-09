@@ -197,6 +197,13 @@ export class Scene {
 
   private attr(el: Element, name: string, value: AttrValue, immediate: boolean): void {
     const id = this.id(el) + ':' + name;
+    if (PAINT.has(name) && typeof value === 'string' && value.startsWith('var(')) {
+      this.tweens.delete(id);
+      el.removeAttribute(name);
+      (el as SVGElement).style.setProperty(name, value);
+      return;
+    }
+    if (PAINT.has(name)) (el as SVGElement).style?.removeProperty(name);
     if (value === null || value === undefined || value === false) {
       this.tweens.delete(id);
       el.removeAttribute(name);
@@ -254,7 +261,14 @@ export class Scene {
   };
 }
 
+const PAINT = new Set(['fill', 'stroke', 'stop-color']);
+
 export function setAttr(el: Element, name: string, v: AttrValue): void {
+  if (PAINT.has(name) && typeof v === 'string' && v.startsWith('var(')) {
+    el.removeAttribute(name);
+    (el as SVGElement).style.setProperty(name, v);
+    return;
+  }
   if (v === null || v === undefined || v === false) el.removeAttribute(name);
   else el.setAttribute(name, typeof v === 'number' ? String(r2(v)) : v);
 }

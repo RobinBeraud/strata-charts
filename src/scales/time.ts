@@ -82,7 +82,6 @@ export class TimeScale implements Scale {
   }
 
   tickFormat(locale: string | undefined): (v: number) => string {
-    const unit = this.unit;
     const time = dateFormat(locale, { hour: '2-digit', minute: '2-digit' });
     const sec = dateFormat(locale, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     const day = dateFormat(locale, { day: 'numeric', month: 'short' });
@@ -90,6 +89,8 @@ export class TimeScale implements Scale {
     const year = dateFormat(locale, { year: 'numeric' });
     // Ticks that open a larger unit get the larger label ("Jan" -> "2026").
     return v => {
+      // Read lazily: callers may build the formatter before computing ticks.
+      const unit = this.unit;
       const d = new Date(v);
       const midnight = d.getHours() === 0 && d.getMinutes() === 0 && d.getSeconds() === 0;
       if (unit === 'year') return year.format(d);

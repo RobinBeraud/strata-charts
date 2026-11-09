@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>compare</title>
+<style>body{margin:0;background:#fff;font-family:system-ui,sans-serif}#c{width:800px}</style></head>
+<body><div id="c"></div>
+<script type="module">
+  import { createChart, builtinTypes } from '/src/index.ts';
+  import { convertHighcharts } from '/src/compat/highcharts.ts';
+  const known = new Set(builtinTypes.map(t => t.type).concat(['bar', 'donut']));
+  let current = null;
+  window.strataRender = (hc) => {
+    current?.destroy();
+    document.getElementById('c').replaceChildren();
+    const c = hc.chart || {};
+    const feature = c.polar ? 'polar' : c.options3d?.enabled ? '3d' : c.parallelCoordinates ? 'parallel-coordinates'
+      : !(hc.series || []).length ? 'no-series (custom renderer)' : null;
+    if (feature) return { status: 'unsupported-feature', feature };
+    const { options, ignored } = convertHighcharts(hc);
+    const types = options.series.map(s => s.type ?? options.type ?? 'line');
+    const unknown = types.filter(t => !known.has(t));
+    if (unknown.length) return { status: 'unsupported-type', unknown: [...new Set(unknown)], ignored };
+    try {
+      current = createChart('#c', { ...options, animation: false, theme: 'light', height: options.height ?? 400 });
+      return { status: 'rendered', ignored, shapes: document.querySelectorAll('#c .strata-layer-series *').length };
+    } catch (e) {
+      return { status: 'error', error: String(e.message), ignored };
+    }
+  };
+  window.ready = true;
+</script>
+</body>
+</html>

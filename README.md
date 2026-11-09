@@ -10,7 +10,7 @@
 [![gzip size](https://img.shields.io/badge/gzip-32%20kB-6366f1?style=flat-square)](#size)
 [![dependencies](https://img.shields.io/badge/dependencies-0-14b8a6?style=flat-square)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?style=flat-square&logo=typescript&logoColor=white)](tsconfig.json)
-[![tests](https://img.shields.io/badge/tests-52%20passing-22c55e?style=flat-square)](tests)
+[![tests](https://img.shields.io/badge/tests-56%20passing-22c55e?style=flat-square)](tests)
 
 ### [▶ Live demo](https://robinberaud.github.io/strata-charts/) · [Quick start](#quick-start) · [Chart types](#chart-types) · [Migrate from Highcharts](#migrating-from-highcharts) · [How it was built](#how-it-was-built)
 
@@ -157,7 +157,9 @@ createChart('#chart', options);
 ```
 
 The converter maps the common options:
-- chart types, titles, axes (including multiple y axes and plot lines);
+- Highcharts 13 `dataTable` + `dataMapping`, `pointStart` / `pointInterval`;
+- format strings such as `{point.y:.1f} mm` (tooltips, axis and data labels);
+- chart types, titles (HTML stripped), axes (multiple y axes, plot lines and bands, hidden axes);
 - stacking, tooltip suffix and decimals, legend, data labels, zoom;
 - navigator and range selector, drilldown, `colorAxis` stops;
 - solid gauges, treemap `id`/`parent`, sankey `from`/`to`/`weight`.
@@ -170,6 +172,20 @@ It tells you exactly what it ignored.
 - multiple x axes, `responsive.rules`.
 
 If you rely on those, Highcharts remains the more complete product.
+
+## How close is it to Highcharts?
+
+Measured against the **165 official examples** shipped with Highcharts 13.1.1. Each example's real config goes through `convertHighcharts()`, is rendered by Strata, and is compared side by side with the original.
+
+| | |
+|---|---|
+| Examples rendered **faithfully** | **51 / 165** (31 %) |
+| Faithful **or close** | **75 / 165** (45 %) |
+| Weighted visual score on the chart types Strata supports | **77 %** |
+| Config options used by the examples that Strata honours (usage-weighted) | **46 %** |
+| Chart types | 17 / 71 (no polar, 3D, maps, Gantt; no stock indicators yet) |
+
+Strata is close on the everyday charts. The gap is breadth: missing chart types and fine-grained styling options. Full method, per-example verdicts and roadmap: [docs/COMPARAISON-HIGHCHARTS.fr.md](docs/COMPARAISON-HIGHCHARTS.fr.md) (French). The harness to reproduce it is in [docs/compare](docs/compare).
 
 <a id="size"></a>
 
@@ -205,7 +221,7 @@ Strata is a **clean-room rewrite** that keeps the good parts (a declarative opti
 ```bash
 npm install
 npm run dev        # demo on http://localhost:5199
-npm test           # 52 tests (Vitest + jsdom)
+npm test           # 56 tests (Vitest + jsdom)
 npm run build      # dist/ (ESM + .d.ts)
 ```
 

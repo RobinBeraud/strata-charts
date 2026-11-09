@@ -1,0 +1,251 @@
+{
+ "examples": 165,
+ "fullyCovered": 2,
+ "distinctPaths": 1094,
+ "distinctSupported": 137,
+ "uses": 4110,
+ "usesSupported": 1877,
+ "usageCoverage": 45.7,
+ "distinctCoverage": 12.5,
+ "medianExampleCoverage": 52,
+ "histogram": [
+  {
+   "range": "0-25",
+   "n": 7
+  },
+  {
+   "range": "25-50",
+   "n": 65
+  },
+  {
+   "range": "50-75",
+   "n": 74
+  },
+  {
+   "range": "75-90",
+   "n": 15
+  },
+  {
+   "range": "90-100",
+   "n": 2
+  },
+  {
+   "range": "100-100",
+   "n": 2
+  }
+ ],
+ "groups": [
+  {
+   "group": "series",
+   "uses": 1156,
+   "supportedPct": 47,
+   "distinct": 331
+  },
+  {
+   "group": "yAxis",
+   "uses": 567,
+   "supportedPct": 48,
+   "distinct": 121
+  },
+  {
+   "group": "plotOptions",
+   "uses": 507,
+   "supportedPct": 24,
+   "distinct": 310
+  },
+  {
+   "group": "xAxis",
+   "uses": 447,
+   "supportedPct": 47,
+   "distinct": 103
+  },
+  {
+   "group": "chart",
+   "uses": 336,
+   "supportedPct": 51,
+   "distinct": 62
+  },
+  {
+   "group": "tooltip",
+   "uses": 264,
+   "supportedPct": 47,
+   "distinct": 37
+  },
+  {
+   "group": "title",
+   "uses": 237,
+   "supportedPct": 68,
+   "distinct": 13
+  },
+  {
+   "group": "legend",
+   "uses": 172,
+   "supportedPct": 39,
+   "distinct": 32
+  },
+  {
+   "group": "subtitle",
+   "uses": 152,
+   "supportedPct": 61,
+   "distinct": 10
+  },
+  {
+   "group": "accessibility",
+   "uses": 54,
+   "supportedPct": 100,
+   "distinct": 1
+  },
+  {
+   "group": "colorAxis",
+   "uses": 50,
+   "supportedPct": 44,
+   "distinct": 24
+  },
+  {
+   "group": "exporting",
+   "uses": 26,
+   "supportedPct": 23,
+   "distinct": 10
+  },
+  {
+   "group": "responsive",
+   "uses": 25,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "colors",
+   "uses": 18,
+   "supportedPct": 67,
+   "distinct": 7
+  },
+  {
+   "group": "credits",
+   "uses": 17,
+   "supportedPct": 76,
+   "distinct": 4
+  },
+  {
+   "group": "data",
+   "uses": 15,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "pane",
+   "uses": 13,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "zAxis",
+   "uses": 10,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "drilldown",
+   "uses": 7,
+   "supportedPct": 86,
+   "distinct": 4
+  },
+  {
+   "group": "sonification",
+   "uses": 6,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "boost",
+   "uses": 5,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "palette",
+   "uses": 5,
+   "supportedPct": 0,
+   "distinct": 5
+  },
+  {
+   "group": "isResponsiveOptions",
+   "uses": 4,
+   "supportedPct": 0,
+   "distinct": 1
+  },
+  {
+   "group": "lang",
+   "uses": 4,
+   "supportedPct": 25,
+   "distinct": 4
+  },
+  {
+   "group": "defs",
+   "uses": 4,
+   "supportedPct": 0,
+   "distinct": 4
+  }
+ ],
+ "topMissing": [
+  "  47  title.align",
+  "  43  tooltip.headerFormat",
+  "  33  subtitle.align",
+  "  25  responsive",
+  "  21  xAxis.lineWidth",
+  "  18  legend.align",
+  "  16  chart.plotBorderWidth",
+  "  15  data",
+  "  15  legend.layout",
+  "  15  yAxis.endOnTick",
+  "  15  series.dataLabels.style.textOutline",
+  "  14  yAxis.lineWidth",
+  "  13  series.dataLabels.style.fontSize",
+  "  13  pane",
+  "  12  xAxis.minPadding",
+  "  12  xAxis.maxPadding",
+  "  11  xAxis.accessibility.description",
+  "  11  tooltip.useHTML",
+  "  11  yAxis.maxPadding",
+  "  10  chart.options3d",
+  "  10  zAxis",
+  "  10  yAxis.startOnTick",
+  "  10  series.marker.radius",
+  "  10  series.borderRadius",
+  "  10  series.levels.level",
+  "   9  xAxis.accessibility.rangeDescription",
+  "   9  xAxis.tickInterval",
+  "   9  tooltip.format",
+  "   9  xAxis.endOnTick",
+  "   9  series.lineWidth",
+  "   9  series.rootId",
+  "   8  xAxis.labels.style.fontSize",
+  "   8  yAxis.accessibility.description",
+  "   8  yAxis.plotLines.width",
+  "   8  yAxis.tickInterval",
+  "   8  tooltip.outside",
+  "   8  series.dataLabels.style.color",
+  "   8  series.showInLegend",
+  "   8  yAxis.minPadding",
+  "   7  yAxis.title",
+  "   7  chart.events.render",
+  "   7  legend.floating",
+  "   7  legend.borderWidth",
+  "   7  chart.plotBorderRadius",
+  "   7  tooltip.footerFormat",
+  "   7  series.zIndex",
+  "   7  series.enableMouseTracking",
+  "   7  series.marker.lineWidth",
+  "   7  series.borderWidth",
+  "   7  series.borderColor",
+  "   7  series.dataLabels.style.fontWeight",
+  "   7  series.size",
+  "   7  chart.marginBottom",
+  "   7  xAxis.tickLength",
+  "   7  xAxis.startOnTick",
+  "   7  yAxis.gridLineColor",
+  "   7  series.marker.symbol",
+  "   7  chart.plotBackgroundColor",
+  "   7  chart.polar",
+  "   6  chart.renderTo"
+ ]
+}

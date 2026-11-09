@@ -83,6 +83,8 @@ export interface SeriesOptions {
   dash?: boolean;
   /** Value labels next to points. Collisions are resolved automatically. */
   dataLabels?: boolean | DataLabelOptions;
+  /** One palette colour per point instead of one per series. */
+  colorByPoint?: boolean;
   /** Pie/donut: inner radius as a ratio of the outer radius (0–0.9). */
   innerRadius?: number;
   /** Candlestick / ohlc / waterfall colours. */
@@ -123,7 +125,10 @@ export interface AxisOptions {
   /** Custom label formatter. Wins over every other format option. */
   formatter?: (value: number, label: string) => string;
   grid?: boolean;
+  /** `false` hides labels, title and grid (the axis still scales the data). */
+  visible?: boolean;
   plotLines?: PlotLine[];
+  plotBands?: { from: number; to: number; color?: string; label?: string }[];
 }
 
 export interface TooltipRow {

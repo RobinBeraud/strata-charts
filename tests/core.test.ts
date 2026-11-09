@@ -137,9 +137,10 @@ describe('model & stacking', () => {
       ],
     }, registry, vis());
     const [a, b] = m.series;
-    expect([a.points[0].y0, a.points[0].y1]).toEqual([0, 5]);
-    expect([b.points[0].y0, b.points[0].y1]).toEqual([5, 8]);
-    expect([b.points[1].y0, b.points[1].y1]).toEqual([-2, -6]);
+    // First series on top (Highcharts' reversedStacks default).
+    expect([b.points[0].y0, b.points[0].y1]).toEqual([0, 3]);
+    expect([a.points[0].y0, a.points[0].y1]).toEqual([3, 8]);
+    expect([a.points[1].y0, a.points[1].y1]).toEqual([-4, -6]);
   });
 
   it('percent stacking sums to 100', () => {
@@ -147,7 +148,7 @@ describe('model & stacking', () => {
       stacking: 'percent',
       series: [{ type: 'area', data: [1, 3] }, { type: 'area', data: [3, 1] }],
     }, registry, vis());
-    expect(m.series[1].points[0].y1).toBeCloseTo(100);
+    expect(m.series[0].points[0].y1).toBeCloseTo(100);
     expect(m.series[0].points[0].percent).toBeCloseTo(25);
   });
 

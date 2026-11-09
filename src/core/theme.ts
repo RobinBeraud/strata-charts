@@ -14,6 +14,8 @@ export const SVG_CSS = `
 .strata-tick-label{fill:var(--sc-muted);font-size:11.5px;font-variant-numeric:tabular-nums}
 .strata-axis-title{fill:var(--sc-muted);font-size:12px;font-weight:500}
 .strata-plotline{stroke-width:1.25;stroke-dasharray:4 4}
+.strata-plotband{fill:var(--sc-band)}
+.strata-plotband-label{fill:var(--sc-muted);font-size:11px;font-weight:600}
 .strata-plotline-label{font-size:11px;font-weight:600;paint-order:stroke;stroke:var(--sc-bg);stroke-width:3px}
 .strata-marker{stroke:var(--sc-bg);stroke-width:1.75}
 .strata-hover-marker{stroke:var(--sc-bg);stroke-width:2.5}

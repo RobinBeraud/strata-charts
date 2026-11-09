@@ -914,11 +914,15 @@ export class Chart {
         if (hits.length === 1 && info.header) header = info.header;
         rows.push(...info.rows);
       } else {
+        const unit = h.point.series.options.suffix;
+        const t = this.tooltipOptions();
         rows.push({
           series: h.point.series.name,
           color: h.point.color,
           value: h.point.y,
           percent: m.stacking === 'percent' ? h.point.percent : undefined,
+          // A series' own unit wins over the chart-wide tooltip suffix (e.g. "mm" vs "°C" on dual axes).
+          text: unit ? (t?.prefix ?? '') + formatValue(h.point.y, this.opts.locale, t?.valueFormat) + unit : undefined,
         });
       }
     }
