@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strata Charts — démo</title>
+  <style>
+    :root { color-scheme: light dark; --page: #f4f6fb; --ink: #0f172a; --muted: #64748b; --line: rgba(100,116,139,.18); }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme=light]) { --page: #070b16; --ink: #e2e8f0; --muted: #94a3b8; --line: rgba(148,163,184,.14); } }
+    :root[data-theme=dark] { --page: #070b16; --ink: #e2e8f0; --muted: #94a3b8; --line: rgba(148,163,184,.14); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    header { max-width: 1280px; margin: 0 auto; padding: 32px 16px 8px; display: flex; flex-wrap: wrap; gap: 16px; align-items: end; justify-content: space-between; }
+    h1 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
+    header p { margin: 4px 0 0; color: var(--muted); max-width: 720px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .actions button { font: inherit; font-size: 13px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+    .actions button:hover { background: var(--line); }
+    main { max-width: 1280px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 540px), 1fr)); gap: 16px; }
+    .card { min-width: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+    .wide { grid-column: 1 / -1; }
+    .note { color: var(--muted); font-size: 12.5px; padding: 0 16px 12px; margin: 0; }
+    code { font-size: 12px; }
+    footer { max-width: 1280px; margin: 0 auto; padding: 8px 16px 40px; color: var(--muted); font-size: 12.5px; }
+    /* ?solo=c-time,c-drill shows only those charts (used for screenshots and deep links). */
+    html.solo header, html.solo footer, html.solo .note, html.solo .card { display: none; }
+    html.solo main { max-width: none; grid-template-columns: repeat(var(--solo-cols, 1), minmax(0, 1fr)); }
+  </style>
+  <script>
+    // Runs before the body is parsed, so charts are laid out at their final size from the first frame.
+    const params = new URLSearchParams(location.search);
+    if (params.get('theme')) document.documentElement.dataset.theme = params.get('theme');
+    const solo = params.get('solo');
+    if (solo) {
+      const ids = solo.split(',').filter(id => /^[\w-]+$/.test(id));
+      document.documentElement.classList.add('solo');
+      document.documentElement.style.setProperty('--solo-cols', String(ids.length));
+      const style = document.createElement('style');
+      style.textContent = ids.map(id => `html.solo .card:has(> #${id}) { display: block; grid-column: auto; }`).join(' ');
+      document.head.appendChild(style);
+    }
+  </script>
+  <script type="module" crossorigin src="/Program Files/Git/strata-charts/assets/index-Cxvzkn3O.js"></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Strata Charts</h1>
+      <p>Bibliothèque de graphiques écrite de zéro à partir de l'analyse d'architecture de Highcharts (rea). TypeScript, ESM, aucun état global, animations par morphing, thème clair/sombre en CSS, clavier et lecteurs d'écran.</p>
+    </div>
+    <div class="actions">
+      <button id="randomize" type="button">Nouvelles données (animé)</button>
+      <button id="theme" type="button">Basculer le thème</button>
+    </div>
+  </header>
+  <main>
+    <section class="card wide"><div id="c-time"></div><p class="note">50 000 points, ~1 point affiché par pixel (LTTB). Navigateur déplaçable, boutons de période, glisser pour zoomer, Ctrl + molette ou pincement pour zoomer autour du curseur.</p></section>
+    <section class="card wide"><div id="c-stock"></div><p class="note">Chandeliers sur deux ans avec navigateur.</p></section>
+    <section class="card"><div id="c-dual"></div><p class="note">Deux axes Y aux graduations alignées, étiquettes de valeurs sans chevauchement.</p></section>
+    <section class="card"><div id="c-drill"></div><p class="note">Cliquez une colonne pour détailler (animation par morphing), « ‹ Retour » ou Retour arrière pour remonter.</p></section>
+    <section class="card"><div id="c-gauge"></div><p class="note">Un anneau par indicateur, valeurs animées en continu.</p></section>
+    <section class="card"><div id="c-needle"></div><p class="note">Cadran à aiguille avec zones colorées.</p></section>
+    <section class="card wide"><div id="c-sankey"></div><p class="note">Survolez un nœud pour isoler ses flux, ou un ruban pour sa part.</p></section>
+    <section class="card wide"><div id="c-treemap"></div><p class="note">Treemap « squarified » : cliquez un groupe pour zoomer, « ‹ Retour » pour remonter.</p></section>
+    <section class="card"><div id="c-waterfall"></div></section>
+    <section class="card"><div id="c-heat"></div></section>
+    <section class="card"><div id="c-area"></div></section>
+    <section class="card"><div id="c-bar"></div></section>
+    <section class="card"><div id="c-donut"></div><p class="note">Étiquettes réparties sans collision, cliquez une part pour détailler.</p></section>
+    <section class="card"><div id="c-bubble"></div></section>
+    <section class="card"><div id="c-scatter"></div><p class="note">20 000 points dessinés en un seul tracé SVG (rapide et exportable).</p></section>
+    <section class="card"><div id="c-compat"></div><p class="note">Configuration au format Highcharts convertie par <code>fromHighcharts()</code>.</p></section>
+  </main>
+  <footer>Navigation clavier : Tab jusqu'au graphique, puis les flèches, Entrée pour détailler. Menu Export : PNG, SVG, CSV.</footer>
+</body>
+</html>
