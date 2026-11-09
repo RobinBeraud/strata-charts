@@ -1,0 +1,64 @@
+{
+  "name": "strata-charts",
+  "version": "0.1.0",
+  "description": "Modern, zero-dependency TypeScript charting library: 15 chart types, morphing animations, navigator, drilldown, dark mode, accessibility, ~32 kB gzip. Drop-in migration path from Highcharts configs.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Robin Béraud-Sudreau",
+  "homepage": "https://robinberaud.github.io/strata-charts/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobinBeraud/strata-charts.git"
+  },
+  "bugs": "https://github.com/RobinBeraud/strata-charts/issues",
+  "keywords": [
+    "charts",
+    "chart",
+    "data-visualization",
+    "dataviz",
+    "svg",
+    "typescript",
+    "sankey",
+    "treemap",
+    "candlestick",
+    "gauge",
+    "heatmap",
+    "highcharts-alternative",
+    "dashboard"
+  ],
+  "sideEffects": false,
+  "main": "./dist/strata.js",
+  "module": "./dist/strata.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/strata.js"
+    },
+    "./core": {
+      "types": "./dist/types/core.d.ts",
+      "import": "./dist/core.js"
+    },
+    "./compat": {
+      "types": "./dist/types/compat/highcharts.d.ts",
+      "import": "./dist/compat.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "3.2.4"
+  }
+}

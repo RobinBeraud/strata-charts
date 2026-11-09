@@ -1,0 +1,155 @@
+edge relation kinds [(('imports', None), 3457), (('imports', 'static-import'), 2100), (('contains', None), 2018), (('exposes', None), 850), (('imports', 'require'), 733), (('calls', None), 9), (('imports', 'dynamic-import'), 1)]
+files with imports 574 non-masters 479
+TOP FAN-IN
+   416 Shared/Utilities.js
+   257 Core/Globals.js
+   186 Core/Series/SeriesRegistry.js
+    67 Core/Defaults.js
+    57 Core/Utilities.js
+    36 Core/Animation/AnimationUtilities.js
+    26 Core/Color/Color.js
+    23 Core/Templating.js
+    20 Data/Formula/FormulaProcessor.js
+    17 Core/Series/Series.js
+    17 Accessibility/Utils/HTMLUtilities.js
+    17 Core/Series/Point.js
+    16 Core/Renderer/SVG/SVGRenderer.js
+    16 Core/Renderer/SVG/SVGElement.js
+    16 Core/Renderer/HTML/AST.js
+    15 Accessibility/Utils/ChartUtilities.js
+    13 Series/Column/ColumnSeries.js
+    13 Extensions/Annotations/Annotation.js
+    13 Core/Chart/Chart.js
+    12 Data/DataTableCore.js
+    11 Extensions/Annotations/MockPoint.js
+    10 Core/Axis/Axis.js
+    10 Stock/Indicators/MultipleLinesComposition.js
+     9 Accessibility/AccessibilityComponent.js
+     9 Core/Math3D.js
+TOP FAN-OUT
+    22 Accessibility/Accessibility.js
+    21 Data/Formula/Formula.js
+    16 Extensions/Annotations/Annotation.js
+    15 Core/Chart/Chart.js
+    14 Series/Treemap/TreemapSeries.js
+    12 Series/Sunburst/SunburstSeries.js
+    12 Extensions/Exporting/Exporting.js
+    12 Series/Networkgraph/NetworkgraphSeries.js
+    12 Series/Pictorial/PictorialSeries.js
+    12 Series/PackedBubble/PackedBubbleSeries.js
+    12 Series/Treegraph/TreegraphSeries.js
+    11 Series/Map/MapSeries.js
+    11 Extensions/Data.js
+    11 Core/Renderer/SVG/SVGRenderer.js
+    11 Series/Sankey/SankeySeries.js
+LARGEST
+    157KB Core/Series/Series.js
+    127KB Core/Axis/AxisDefaults.js
+    120KB Core/Chart/Chart.js
+    120KB Core/Defaults.js
+     78KB Extensions/Data.js
+     60KB Stock/RangeSelector/RangeSelector.js
+     52KB Core/Legend/Legend.js
+     51KB Core/Series/Point.js
+     40KB Extensions/Drilldown/Drilldown.js
+     38KB Core/Axis/GridAxis.js
+     37KB Core/Axis/RadialAxis.js
+     32KB Data/DataTable.js
+     31KB Extensions/Exporting/ExportingDefaults.js
+     30KB Extensions/Annotations/NavigationBindings.js
+     28KB Core/Series/DataLabel.js
+     27KB Series/Column/ColumnSeries.js
+     27KB Extensions/Sonification/InstrumentPresets.js
+     25KB Accessibility/Components/SeriesComponent/SeriesKeyboardNavigation.js
+     25KB Gantt/PathfinderAlgorithms.js
+     25KB Extensions/Annotations/AnnotationDefaults.js
+AREAS
+   312 files    604KB Series
+   172 files    163KB Stock
+    55 files    133KB Data
+    45 files    113KB Extensions/Annotations
+    43 files    294KB Core/Axis
+    34 files     21KB Core/Renderer
+    31 files    107KB Accessibility
+    28 files     50KB Maps
+    19 files    241KB Core/Series
+    13 files     20KB Extensions/Boost
+    11 files     70KB Extensions/Sonification
+     9 files    159KB Core/Chart
+     8 files     49KB Gantt
+     8 files     31KB Extensions/Exporting
+     8 files     46KB Extensions/DataGrouping
+     7 files     11KB Extensions/Themes
+     7 files      0KB Core/Color
+     6 files      5KB Shared
+     6 files     14KB Extensions/MarkerClusters
+     6 files      2KB Extensions/DraggablePoints
+     6 files     13KB Core/Geometry
+     5 files     10KB Extensions/ParallelCoordinates
+     5 files     52KB Core/Legend
+     4 files     40KB Extensions/Drilldown
+     4 files      0KB Core/Animation
+     4 files      0KB Extensions/SeriesLabel
+     4 files     11KB Extensions/DragPanes
+     4 files      0KB Extensions/Pane
+     3 files      3KB Extensions/NoDataToDisplay
+     3 files      0KB Extensions/ExportData
+IMPORT CYCLES 0
+EVENT 39
+    7 ('event', '')
+    5 ('click', '')
+    4 ('{"emitter_key": "binding:scope:function:1768:3965:binding:connector", "event_nam', 'Data/Connectors/JSONConnector.js')
+    3 ('{"emitter_key": "binding:scope:function:1818:3561:binding:connector", "event_nam', 'Data/Connectors/CSVConnector.js')
+    3 ('{"emitter_key": "binding:scope:function:1988:4018:binding:connector", "event_nam', 'Data/Connectors/GoogleSheetsConnector.js')
+    3 ('{"emitter_key": "binding:scope:function:1550:2975:binding:connector", "event_nam', 'Data/Connectors/HTMLTableConnector.js')
+    2 ('{"emitter_key": "this:8994:12509", "event_name": null}', 'Data/Converters/HTMLTableConverter.js')
+    2 ('{"emitter_key": "this:6094:6841", "event_name": null}', 'Data/Connectors/DataConnector.js')
+    2 ('{"emitter_key": "binding:scope:function:1579:2754:binding:converter", "event_nam', 'Data/Converters/JSONConverter.js')
+    2 ('{"emitter_key": "binding:scope:function:1797:5129:binding:converter", "event_nam', 'Data/Converters/CSVConverter.js')
+    2 ('{"emitter_key": "binding:scope:function:1607:3123:binding:converter", "event_nam', 'Data/Converters/GoogleSheetsConverter.js')
+    1 ('{"emitter_key": "this:7049:7143", "event_name": null}', 'Data/Connectors/DataConnector.js')
+TIMER 10
+    2 ('setTimeout', 'Accessibility/Components/InfoRegionsComponent.js')
+    1 ('setTimeout', 'Accessibility/Components/SeriesComponent/SeriesKeyboardNavigation.js')
+    1 ('setTimeout', 'Core/Series/Point.js')
+    1 ('setTimeout', 'Data/Connectors/GoogleSheetsConnector.js')
+    1 ('setTimeout', 'Accessibility/Components/SeriesComponent/NewDataAnnouncer.js')
+    1 ('setTimeout', 'Core/Chart/Chart.js')
+    1 ('setTimeout', 'Accessibility/Utils/Announcer.js')
+    1 ('setTimeout', 'Accessibility/Components/NavigatorComponent.js')
+    1 ('setTimeout', 'Core/Animation/Fx.js')
+REQUEST 3
+    1 ('fetch', 'Data/Connectors/GoogleSheetsConnector.js')
+    1 ('fetch', 'Data/Connectors/JSONConnector.js')
+    1 ('fetch', 'Data/Connectors/CSVConnector.js')
+BOUNDARY 94
+    8 ('parse', 'Core/Axis/Axis.js')
+    6 ('Number', 'Core/Renderer/SVG/SVGElement.js')
+    4 ('is', 'Core/Chart/StockChart.js')
+    3 ('validate', 'Accessibility/KeyboardNavigation.js')
+    3 ('Number', 'Data/Converters/CSVConverter.js')
+    3 ('parse', 'Core/Axis/TreeGrid/TreeGridAxis.js')
+    3 ('Number', 'Accessibility/A11yI18n.js')
+    3 ('parseFloat', 'Accessibility/Components/NavigatorComponent.js')
+    3 ('parse', 'Core/Axis/PlotLineOrBand/PlotLineOrBand.js')
+    2 ('parseFloat', 'Data/Converters/DataConverterUtils.js')
+    2 ('Boolean', 'Core/Renderer/SVG/TextBuilder.js')
+    2 ('Boolean', 'Core/Tooltip.js')
+LISTENER 13
+    4 ('on:listener', 'Core/Series/DataSeriesComposition.js')
+    3 ('on:click', 'Core/Legend/Legend.js')
+    1 ('on:mouseout', 'Core/Legend/Legend.js')
+    1 ('on', 'Core/Axis/PlotLineOrBand/PlotLineOrBand.js')
+    1 ('on:click', 'Core/Chart/Chart.js')
+    1 ('on:listener', 'Core/Legend/Legend.js')
+    1 ('on:listener', 'Core/Renderer/SVG/SVGRenderer.js')
+    1 ('on:click', 'Core/Renderer/SVG/SVGRenderer.js')
+ENDPOINT ['rgb']
+ENDPOINT ['csvURL']
+ENDPOINT ['url']
+ENDPOINT ['href']
+ENDPOINT ['chart']
+ENDPOINT ['rgb']
+ENDPOINT ['url']
+ENDPOINT ['dataUrl']
+ENDPOINT ['a']

@@ -1,0 +1,351 @@
+{
+ "summary": {
+  "evidence_id": "ev_1ca004f58592e662194518ddc61f78519baa144e75c30bea95dd9bb8125d6c36",
+  "subject": {
+   "name": "es-modules",
+   "digest": {
+    "sha256": "4dc7ada8ff290424e49ed27f5eebd5057356d4fd4b94ef7ec61d1a1191af71d8"
+   },
+   "local_path": "highcharts-13.1.1/code/es-modules",
+   "format": "directory",
+   "architecture": null
+  },
+  "provider": {
+   "id": "rea-analysis-view",
+   "name": "REA analysis view projection",
+   "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis-view",
+  "operation": "inspect_analysis_view",
+  "parameters": {
+   "parent_evidence_id": "ev_56ca7f5f62d6a9967a42770705bde9ae54f54156f8a5097f61a9f18da678375c",
+   "view": {
+    "kind": "summary"
+   }
+  },
+  "raw_result": null,
+  "normalized_result": {
+   "kind": "summary",
+   "view": {
+    "kind": "summary"
+   },
+   "parent_evidence_id": "ev_56ca7f5f62d6a9967a42770705bde9ae54f54156f8a5097f61a9f18da678375c",
+   "parent_operation": "analyze_javascript_application",
+   "parent_digest": "56ca7f5f62d6a9967a42770705bde9ae54f54156f8a5097f61a9f18da678375c",
+   "view_digest": "65a5722c7489f91b29e873457335da4f40b2afa021053c4cbf4cc7c9fc0a135e",
+   "artifact": {
+    "path": "highcharts-13.1.1/code/es-modules",
+    "sha256": "4dc7ada8ff290424e49ed27f5eebd5057356d4fd4b94ef7ec61d1a1191af71d8"
+   },
+   "coverage": {
+    "status": "complete-within-view",
+    "examined": 3379,
+    "total": 3379,
+    "next_offset": null,
+    "exhausted": true
+   },
+   "limitations": [
+    "Alias selection expansion was conservatively bounded (maximum 512 additional selector states); selected paths remain unknown.",
+    "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+    "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+    "Core/Series/Series.js: Resource constraint during analyze_javascript_application: Owned JavaScript worker exhausted its 3072 MiB V8 old-space heap (max_heap_mb) while analyzing Core/Series/Series.js during static",
+    "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+    "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+    "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+    "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+    "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+    "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+    "Semantic node retention reached max_semantic_nodes is 100000 (default 100000; an integer from 1 to 1000000). Set max_semantic_nodes on the next analyze_javascript_application call (CLI: --max-semantic-nodes). The change applies to that next analysis and does not restart the worker or the REA server. Raising it does not raise max_semantic_unknowns, max_heap_mb, transfer ceilings, or the parent result budget. Coverage reports the same effective values as semantic_graph_node_ceiling and semantic_graph_file_node_ceiling.",
+    "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+    "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+    "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+    "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+    "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+   ],
+   "unknowns": [
+    "1 application graph unknowns remain in the parent Evidence.",
+    "38253 semantic graph unknowns remain in the parent Evidence.",
+    "Alias selection expansion was conservatively bounded (maximum 512 additional selector states); selected paths remain unknown.",
+    "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+    "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+    "Core/Series/Series.js: Resource constraint during analyze_javascript_application: Owned JavaScript worker exhausted its 3072 MiB V8 old-space heap (max_heap_mb) while analyzing Core/Series/Series.js during static",
+    "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+    "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+    "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+    "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+    "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+    "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+    "Semantic node retention reached max_semantic_nodes is 100000 (default 100000; an integer from 1 to 1000000). Set max_semantic_nodes on the next analyze_javascript_application call (CLI: --max-semantic-nodes). The change applies to that next analysis and does not restart the worker or the REA server. Raising it does not raise max_semantic_unknowns, max_heap_mb, transfer ceilings, or the parent result budget. Coverage reports the same effective values as semantic_graph_node_ceiling and semantic_graph_file_node_ceiling.",
+    "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+    "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+    "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+    "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+    "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.",
+    "graph.coverage.status is partial",
+    "semantic_graph.coverage.status is partial"
+   ],
+   "summary": {
+    "input_path": "highcharts-13.1.1/code/es-modules",
+    "format": "directory",
+    "root_artifact_sha256": "4dc7ada8ff290424e49ed27f5eebd5057356d4fd4b94ef7ec61d1a1191af71d8",
+    "statistics": {
+     "relevant_files": 1009,
+     "nested_asar_containers": 0,
+     "text_bytes_read": 7313239,
+     "invalid_utf8_files": 0,
+     "parsed_javascript_files": 1008,
+     "skipped_javascript_files": 1,
+     "visited_ast_nodes": 515468,
+     "findings": 7055,
+     "modules": 0,
+     "parse_failures": 0
+    },
+    "electron": {
+     "browser_windows": 0,
+     "explicit_web_preferences": 0,
+     "preload_entrypoints": 0,
+     "context_bridge_apis": 0,
+     "exposed_api_members": 0,
+     "ipc": {
+      "operations": 0,
+      "literal_channels": 0,
+      "dynamic_channel_operations": 0,
+      "renderer_transmissions": 0,
+      "renderer_listeners": 0,
+      "main_handlers": 0,
+      "paired_renderer_transmissions": 0,
+      "ambiguous_renderer_transmissions": 0,
+      "unpaired_literal_renderer_transmissions": 0
+     },
+     "sender_validation_observations": 0,
+     "utility_processes": 0,
+     "resolved_utility_entrypoints": 0,
+     "native_addon_bindings": 0,
+     "resolved_native_addon_bindings": 0
+    },
+    "coverage": {
+     "static_sources": {
+      "sources": 1009,
+      "unmeasured_sources": 0,
+      "syntax": {
+       "complete": 1008,
+       "recovered": 0,
+       "failed": 0,
+       "not-examined": 1
+      },
+      "semantics": {
+       "unknown_sources": 170,
+       "unexamined_sources": 1
+      },
+      "examination": {
+       "complete": 948,
+       "limited": 60,
+       "not-examined": 1
+      },
+      "electron_applicability": {
+       "observed": 0,
+       "unknown": 1009
+      }
+     },
+     "application": {
+      "status": "partial",
+      "truncated": false,
+      "omitted_count": null,
+      "limits": [
+       {
+        "name": "javascript_analysis_worker_heap_limit_bytes",
+        "value": 3246391296,
+        "unit": "bytes"
+       },
+       {
+        "name": "javascript_analysis_worker_timeout_ms",
+        "value": 300000,
+        "unit": "milliseconds"
+       },
+       {
+        "name": "javascript_semantic_alias_selections",
+        "value": 512,
+        "unit": "items"
+       }
+      ]
+     },
+     "semantic": {
+      "status": "partial",
+      "truncated": true,
+      "omitted_nodes": null,
+      "omitted_relations": null,
+      "limits": [
+       {
+        "name": "javascript_analysis_worker_heap_limit_bytes",
+        "value": 3246391296,
+        "unit": "bytes"
+       },
+       {
+        "name": "javascript_analysis_worker_timeout_ms",
+        "value": 300000,
+        "unit": "milliseconds"
+       },
+       {
+        "name": "max_semantic_nodes",
+        "value": 100000,
+        "unit": "items"
+       },
+       {
+        "name": "max_semantic_nodes_per_file",
+        "value": 20000,
+        "unit": "items"
+       },
+       {
+        "name": "semantic_graph_file_node_ceiling",
+        "value": 20000,
+        "unit": "items"
+       },
+       {
+        "name": "semantic_graph_node_ceiling",
+        "value": 100000,
+        "unit": "items"
+       }
+      ],
+      "families": [
+       {
+        "family": "boundary",
+        "status": "partial",
+        "retained_relations": 94,
+        "omitted_relations": null,
+        "unknown_count": 47
+       },
+       {
+        "family": "call-flow",
+        "status": "partial",
+        "retained_relations": 2169,
+        "omitted_relations": null,
+        "unknown_count": 6552
+       },
+       {
+        "family": "child-process",
+        "status": "partial",
+        "retained_relations": 0,
+        "omitted_relations": null,
+        "unknown_count": 1
+       },
+       {
+        "family": "closure",
+        "status": "partial",
+        "retained_relations": 5121,
+        "omitted_relations": null,
+        "unknown_count": 1
+       },
+       {
+        "family": "configuration",
+        "status": "partial",
+        "retained_relations": 0,
+        "omitted_relations": null,
+        "unknown_count": 1
+       },
+       {
+        "family": "data-flow",
+        "status": "partial",
+        "retained_relations": 72862,
+        "omitted_relations": null,
+        "unknown_count": 12656
+       },
+       {
+        "family": "event",
+        "status": "partial",
+        "retained_relations": 39,
+        "omitted_relations": null,
+        "unknown_count": 35
+       },
+       {
+        "family": "object-flow",
+        "status": "partial",
+        "retained_relations": 12555,
+        "omitted_relations": null,
+        "unknown_count": 18938
+       },
+       {
+        "family": "promise-ownership",
+        "status": "partial",
+        "retained_relations": 46,
+        "omitted_relations": null,
+        "unknown_count": 12
+       },
+       {
+        "family": "request",
+        "status": "partial",
+        "retained_relations": 6,
+        "omitted_relations": null,
+        "unknown_count": 4
+       },
+       {
+        "family": "resource-lifecycle",
+        "status": "partial",
+        "retained_relations": 0,
+        "omitted_relations": null,
+        "unknown_count": 1
+       },
+       {
+        "family": "timer",
+        "status": "partial",
+        "retained_relations": 10,
+        "omitted_relations": null,
+        "unknown_count": 5
+       }
+      ]
+     },
+     "application_unknowns": 1,
+     "semantic_unknowns": 38253
+    },
+    "limitation_count": 20
+   }
+  },
+  "confidence": "derived",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+   "Alias selection expansion was conservatively bounded (maximum 512 additional selector states); selected paths remain unknown.",
+   "Boundary extraction covers unshadowed JSON/global coercions plus parse and validation method candidates.",
+   "Child-process extraction covers asynchronous node:child_process creation, literal argv/env/stdio options, exit/error listeners, and kill signals.",
+   "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+   "Configuration extraction covers process.env, process.argv, node:fs reads, and direct logical defaults.",
+   "Core/Series/Series.js: Resource constraint during analyze_javascript_application: Owned JavaScript worker exhausted its 3072 MiB V8 old-space heap (max_heap_mb) while analyzing Core/Series/Series.js during static",
+   "Event extraction covers EventEmitter-style literal registrations, removals, and dispatch candidates; dynamic names remain unknown.",
+   "Function fingerprints are static candidates; equal digests can remain ambiguous and do not prove behavioral equivalence.",
+   "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+   "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+   "Local data flow does not claim control-flow-sensitive reaching definitions or arbitrary dynamic property resolution.",
+   "Promise ownership covers explicit unshadowed Promise construction, static factories, aggregation, chaining, and await syntax only.",
+   "Request extraction covers fetch, WebSocket, node:http/node:https construction, direct option fields, and exact local response consumers.",
+   "Resource extraction covers built-in filesystem/network acquisition and exact local close/destroy/end handles.",
+   "Semantic node retention reached max_semantic_nodes is 100000 (default 100000; an integer from 1 to 1000000). Set max_semantic_nodes on the next analyze_javascript_application call (CLI: --max-semantic-nodes). The change applies to that next analysis and does not restart the worker or the REA server. Raising it does not raise max_semantic_unknowns, max_heap_mb, transfer ceilings, or the parent result budget. Coverage reports the same effective values as semantic_graph_node_ceiling and semantic_graph_file_node_ceiling.",
+   "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+   "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+   "The semantic graph contains static syntax observations and conservative relationship candidates; it does not claim runtime execution.",
+   "Timer extraction covers global or node:timers scheduling and exact local-handle cancellation.",
+   "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+   {
+    "kind": "artifact-path",
+    "path": "highcharts-13.1.1/code/es-modules"
+   }
+  ],
+  "evidence_links": [
+   "ev_56ca7f5f62d6a9967a42770705bde9ae54f54156f8a5097f61a9f18da678375c"
+  ]
+ },
+ "evidence_bundle": {
+  "path": "hc-es.json",
+  "bytes": 201576755
+ }
+}
