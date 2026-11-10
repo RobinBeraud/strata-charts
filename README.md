@@ -6,6 +6,7 @@
 
 15 chart types · morphing animations · stock-style navigator · drilldown · dark mode · keyboard & screen readers · Highcharts config converter
 
+[![npm](https://img.shields.io/npm/v/strata-charts?style=flat-square&color=cb3837)](https://www.npmjs.com/package/strata-charts)
 [![MIT license](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
 [![gzip size](https://img.shields.io/badge/gzip-32%20kB-6366f1?style=flat-square)](#size)
 [![dependencies](https://img.shields.io/badge/dependencies-0-14b8a6?style=flat-square)](package.json)
@@ -14,7 +15,7 @@
 
 ### [▶ Live demo](https://robinberaud.github.io/strata-charts/) · [Quick start](#quick-start) · [Chart types](#chart-types) · [Migrate from Highcharts](#migrating-from-highcharts) · [How it was built](#how-it-was-built)
 
-<img src="docs/media/navigator.gif" alt="50,000-point time series with a draggable navigator, period buttons and zoom" width="860" />
+<img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/navigator.gif" alt="50,000-point time series with a draggable navigator, period buttons and zoom" width="860" />
 
 <sub>50,000 points, drawn at ~1 point per pixel (LTTB). Drag the navigator, click a period, ctrl/⌘ + wheel to zoom.</sub>
 
@@ -39,23 +40,23 @@
 - **Exports.** PNG, standalone SVG (styles inlined) and CSV, from a built-in menu or the API.
 
 <div align="center">
-<img src="docs/media/gallery-dark.png" alt="Strata Charts gallery in dark mode" width="900" />
+<img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/gallery-dark.png" alt="Strata Charts gallery in dark mode" width="900" />
 </div>
 
 ## Chart types
 
 <table>
 <tr>
-<td width="50%"><img src="docs/media/drilldown.gif" alt="Animated drilldown" /><br/><b>Drilldown</b>: click a column and the bars morph into its children; Back or Backspace goes up.</td>
-<td width="50%"><img src="docs/media/treemap.gif" alt="Treemap zoom" /><br/><b>Treemap</b>: squarified layout, two levels at a time, click to zoom into a group.</td>
+<td width="50%"><img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/drilldown.gif" alt="Animated drilldown" /><br/><b>Drilldown</b>: click a column and the bars morph into its children; Back or Backspace goes up.</td>
+<td width="50%"><img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/treemap.gif" alt="Treemap zoom" /><br/><b>Treemap</b>: squarified layout, two levels at a time, click to zoom into a group.</td>
 </tr>
 <tr>
-<td><img src="docs/media/sankey.gif" alt="Sankey diagram" /><br/><b>Sankey</b>: gradient ribbons; hovering a node isolates its flows.</td>
-<td><img src="docs/media/gauges.gif" alt="Gauges" /><br/><b>Gauge</b>: activity rings (one per KPI) or a classic dial with a needle and zones.</td>
+<td><img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/sankey.gif" alt="Sankey diagram" /><br/><b>Sankey</b>: gradient ribbons; hovering a node isolates its flows.</td>
+<td><img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/gauges.gif" alt="Gauges" /><br/><b>Gauge</b>: activity rings (one per KPI) or a classic dial with a needle and zones.</td>
 </tr>
 <tr>
-<td><img src="docs/media/stock.gif" alt="Candlesticks" /><br/><b>Candlestick / OHLC</b>: navigator, period buttons, OHLC tooltip with % change.</td>
-<td><img src="docs/media/morph.gif" alt="Dual axis with data labels" /><br/><b>Two y axes</b> with aligned ticks, collision-free data labels and morphing updates.</td>
+<td><img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/stock.gif" alt="Candlesticks" /><br/><b>Candlestick / OHLC</b>: navigator, period buttons, OHLC tooltip with % change.</td>
+<td><img src="https://raw.githubusercontent.com/RobinBeraud/strata-charts/main/docs/media/morph.gif" alt="Dual axis with data labels" /><br/><b>Two y axes</b> with aligned ticks, collision-free data labels and morphing updates.</td>
 </tr>
 </table>
 
@@ -66,7 +67,7 @@ Axes: linear, logarithmic, time and category, with any number of y axes and plot
 ## Quick start
 
 ```bash
-npm install github:RobinBeraud/strata-charts
+npm install strata-charts
 ```
 
 ```html
